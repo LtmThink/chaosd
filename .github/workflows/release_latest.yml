@@ -28,11 +28,6 @@ jobs:
       - name: Build binary and related tools
         run: make build
 
-      - name: Configure awscli
-        run: |
-          pip3 install awscli
-          printf "%s\n" ${{ secrets.AWS_ACCESS_KEY }} ${{ secrets.AWS_SECRET_KEY }} ${{ secrets.AWS_REGION }} "json" | aws configure
-
       # TODO: release on github package / release
       - name: Upload files
         run: |
